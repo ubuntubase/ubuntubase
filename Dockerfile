@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+ARG VERSION
+FROM ubuntu:$VERSION
 
 # Set the default timezone
 ENV TZ Europe/Amsterdam

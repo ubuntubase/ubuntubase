@@ -10,8 +10,10 @@ on:
     - cron:  '10 3 * * 6'
 
 jobs:
-
   build:
+    strategy:
+      matrix:
+        version: [20.04, 22.04]
 
     runs-on: ubuntu-latest
 
@@ -23,10 +25,10 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ubuntubase/ubuntubase:$(date +%Y%m%d) --tag ubuntubase/ubuntubase:20.04 --tag ubuntubase/ubuntubase:latest
+      run: docker build . --file Dockerfile --build-arg VERSION=${{ matrix.version }} --tag ubuntubase/ubuntubase:${{ matrix.version }}-$(date +%Y%m%d) --tag ubuntubase/ubuntubase:${{ matrix.version }} --tag ubuntubase/ubuntubase:${{ matrix.version }}-latest
     - name: Push the Docker image (1)
-      run: docker push ubuntubase/ubuntubase:$(date +%Y%m%d)
+      run: docker push ubuntubase/ubuntubase:${{ matrix.version }}-$(date +%Y%m%d)
     - name: Push the Docker image (2)
-      run: docker push ubuntubase/ubuntubase:20.04
+      run: docker push ubuntubase/ubuntubase:${{ matrix.version }}
     - name: Push the docker image (3)
-      run: docker push ubuntubase/ubuntubase:latest
+      run: docker push ubuntubase/ubuntubase:${{ matrix.version }}-latest
