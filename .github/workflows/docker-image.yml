@@ -8,6 +8,7 @@ on:
   schedule:
     # Weekly build
     - cron:  '10 3 * * 6'
+  workflow_dispatch:
 
 jobs:
   build:
