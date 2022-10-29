@@ -39,11 +39,16 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
+    - name: Define variables
+      run: echo "Tags are > ${TODAY}"
+      env:
+        TODAY: "$(date +%Y%m%d)"
+
     - name: Build and push images
       uses: docker/build-push-action@v3
       with:
         context: .
         build-args: "VERSION=${{ matrix.version }}"
         # platforms: linux/amd64,linux/arm64
-        tags: ubuntubase/ubuntubase:${{ matrix.version }}-$(date +%Y%m%d),ubuntubase/ubuntubase:${{ matrix.version }},ubuntubase/ubuntubase:${{ matrix.version }}-latest
+        tags: ubuntubase/ubuntubase:${{ matrix.version }}-${TODAY},ubuntubase/ubuntubase:${{ matrix.version }},ubuntubase/ubuntubase:${{ matrix.version }}-latest
         push: true
