@@ -8,9 +8,9 @@ Ubuntu (base) images with:
 
 Available tags:
 
-- `20.04` --> [Ubuntu 20.04 (base) image](https://hub.docker.com/_/ubuntu?tab=tags&page=1&name=20.04)
-- `22.04` --> [Ubuntu 22.04 (base) image](https://hub.docker.com/_/ubuntu?tab=tags&page=1&name=22.04)
-- `22.10` --> [Ubuntu 22.10 (base) image](https://hub.docker.com/_/ubuntu?tab=tags&page=1&name=22.10)
+- `20.04` --> [Ubuntu 20.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase?tab=tags&page=1&name=20.04)
+- `22.04` --> [Ubuntu 22.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase?tab=tags&page=1&name=22.04)
+- `22.10` --> [Ubuntu 22.10 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase/tags?page=1&name=22.10)
 
 Use it like this:
 
