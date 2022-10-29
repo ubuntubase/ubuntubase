@@ -11,11 +11,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  buildx:
     strategy:
       matrix:
-        version: [20.04, 22.04]
-
+        version: [20.04, 22.04, 22.10]
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +23,19 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-    - uses: actions/checkout@v2
+    - 
+      name: Checkout
+      uses: actions/checkout@v2
+    -
+        # Add support for more platforms with QEMU (optional)
+        # https://github.com/docker/setup-qemu-action
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+      with:
+        install: true
+        platforms: linux/amd64,linux/arm64
     - name: Build the Docker image
       run: docker build . --file Dockerfile --build-arg VERSION=${{ matrix.version }} --tag ubuntubase/ubuntubase:${{ matrix.version }}-$(date +%Y%m%d) --tag ubuntubase/ubuntubase:${{ matrix.version }} --tag ubuntubase/ubuntubase:${{ matrix.version }}-latest
     - name: Push the Docker image (1)
