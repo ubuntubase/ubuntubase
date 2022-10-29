@@ -41,7 +41,7 @@ jobs:
 
     # https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
     - name: Set TODAY to current date
-      run: echo "$(date +'%Y%m%d')" >> $TODAY
+      run: echo "$(date +'%Y%m%d')" >> $GITHUB_TODAY
 
     - name: Build and push images
       uses: docker/build-push-action@v3
@@ -49,5 +49,5 @@ jobs:
         context: .
         build-args: "VERSION=${{ matrix.version }}"
         # platforms: linux/amd64,linux/arm64
-        tags: ubuntubase/ubuntubase:${{ matrix.version }}-${TODAY},ubuntubase/ubuntubase:${{ matrix.version }},ubuntubase/ubuntubase:${{ matrix.version }}-latest
+        tags: ubuntubase/ubuntubase:${{ matrix.version }}-${GITHUB_TODAY},ubuntubase/ubuntubase:${{ matrix.version }},ubuntubase/ubuntubase:${{ matrix.version }}-latest
         push: true
