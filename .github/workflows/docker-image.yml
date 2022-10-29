@@ -48,6 +48,6 @@ jobs:
       with:
         context: .
         build-args: "VERSION=${{ matrix.version }}"
-        # platforms: linux/amd64,linux/arm64
+        platforms: linux/amd64,linux/arm64
         tags: ubuntubase/ubuntubase:${{ matrix.version }}-${{env.TODAY}},ubuntubase/ubuntubase:${{ matrix.version }},ubuntubase/ubuntubase:${{ matrix.version }}-latest
         push: true
