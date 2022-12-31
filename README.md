@@ -4,7 +4,7 @@ Ubuntu (base) images with:
 
 - `ca-certificates` and `tzdata` installed
 - the timezone set to `Europe/Amsterdam`
-- all packages upgraded tot there latest versions (`apt-get upgrade`)
+- all packages upgraded to their latest versions (`apt-get upgrade`)
 
 Available tags:
 
