@@ -50,6 +50,6 @@ jobs:
         build-args: "VERSION=${{ matrix.version }}"
         # Supported architectures base image: amd64, arm32v7, arm64v8, i386, ppc64le, riscv64, s390x (source: https://hub.docker.com/_/ubuntu)
         # List of valid platform identifiers: https://www.winters.nz/docker/cross-platform-github-actions/
-        platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/386
+        platforms: linux/amd64,linux/arm/v7,linux/arm64
         tags: ubuntubase/ubuntubase:${{ matrix.version }}-${{env.TODAY}},ubuntubase/ubuntubase:${{ matrix.version }},ubuntubase/ubuntubase:${{ matrix.version }}-latest
         push: true
