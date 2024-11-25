@@ -33,7 +33,7 @@ For this repo, set the following git config:
 ```sh
 git config user.name "Jeroen"
 git config user.email "gitlab.com@hendricksen.eu"
-git config pull.ff only 
+git config pull.ff only
 ```
 
 Verify the config:
