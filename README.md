@@ -8,21 +8,35 @@ Ubuntu (base) images with:
 
 Available tags:
 
-- `20.04` --> [Ubuntu 20.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase?tab=tags&page=1&name=20.04)
 - `22.04` --> [Ubuntu 22.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase?tab=tags&page=1&name=22.04)
 - `23.04` --> [Ubuntu 23.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase/tags?page=1&name=23.04)
-- `23.10` --> [Ubuntu 23.10 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase/tags?page=1&name=23.10)
+- `24.04` --> [Ubuntu 24.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase/tags?page=1&name=24.04)
 
 Use it like this:
 
 ```sh
-$ docker run -it --rm ubuntubase/ubuntubase:23.04 date
+$ docker run -it --rm ubuntubase/ubuntubase:24.04 date
 Sat Oct 29 22:15:08 CEST 2022
 ```
 
 You can override the timezone by overriding the TZ variable during container startup, like this:
 
 ```sh
-$ docker run -it --rm -e 'TZ=Europe/London' ubuntubase/ubuntubase:23.04 date
+$ docker run -it --rm -e 'TZ=Europe/London' ubuntubase/ubuntubase:24.04 date
 Sat Oct 29 21:15:08 BST 2022
+```
+
+## Git config
+
+For this repo, set the following git config:
+
+```sh
+git config user.name "Jeroen"
+git config user.email "gitlab.com@hendricksen.eu"
+```
+
+Verify the config:
+
+```sh
+git config --local --list
 ```
