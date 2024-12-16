@@ -9,7 +9,6 @@ Ubuntu (base) images with:
 Available tags:
 
 - `22.04` --> [Ubuntu 22.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase?tab=tags&page=1&name=22.04)
-- `23.04` --> [Ubuntu 23.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase/tags?page=1&name=23.04)
 - `24.04` --> [Ubuntu 24.04 (base) image](https://hub.docker.com/r/ubuntubase/ubuntubase/tags?page=1&name=24.04)
 
 Use it like this:

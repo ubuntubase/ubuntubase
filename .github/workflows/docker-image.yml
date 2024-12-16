@@ -14,7 +14,7 @@ jobs:
   docker:
     strategy:
       matrix:
-        version: ["22.04", "23.04", "24.04"]
+        version: ["22.04", "24.04"]
     runs-on: ubuntu-latest
 
     steps:
